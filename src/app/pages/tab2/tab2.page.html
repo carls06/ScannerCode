@@ -1,0 +1,30 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      Historial
+    </ion-title>
+          <ion-buttons slot="end">
+              <ion-button (click)="borrar()"
+                          color="primary">
+                          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+          </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+    <ion-list>
+        <ion-item *ngFor="let item of dataLocal.guardados"
+                 (click)="onClick(item)"
+                  detail>
+            <ion-icon slot="start" [name]="item.icon"></ion-icon>
+            <ion-label>
+                <h2>{{item.text}}</h2>
+                <p>{{item.created|date: 'medium'}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>
